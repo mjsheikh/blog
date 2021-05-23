@@ -1,5 +1,5 @@
 theme = "hugo-sugoi"
-baseURL = "https://example.com"
+baseURL = "https://mjsheikh.github.io/blog/"
 languageCode = "en-us"
 title = "Zeeshan's Blog"
 summaryLength = 20
