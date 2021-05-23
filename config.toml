@@ -1,0 +1,37 @@
+theme = "hugo-sugoi"
+baseURL = "https://github.com/mjsheikh.github.io/blog"
+languageCode = "en-us"
+title = "Zeeshan's Blog"
+summaryLength = 20
+paginate = 5
+# Google Analytics ID, Uncomment below line to enable
+# googleAnalytics = "UA-123-45"
+
+# Enter your disqus Shortname and uncomment below line to enable
+disqusShortname = "mjsheikh"
+
+[params]
+favicon = "images/blog.png"
+herotitle = "Welcome! I'll be using this space to keep you posted :)"
+herolink = "https://mjsheikh.github.io/"
+herolinktext = "My Homepage"
+
+[hero]
+
+[menu]
+    [[menu.nav]]
+        name    = "about"
+        pre = "<i class='fas fa-home'></i>"
+        url     = "about"
+        weight  = -1
+    [[menu.nav]]
+        name    = "blog"
+        pre = "<i class='fas fa-list'></i>"
+        url     = "post"
+        weight  = -2
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
