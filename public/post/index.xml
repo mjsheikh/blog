@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Zeeshan&#39;s Blog</title>
+    <link>https://github.com/mjsheikh.github.io/blog/post/</link>
+    <description>Recent content in Posts on Zeeshan&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 May 2021 22:34:49 +0530</lastBuildDate><atom:link href="https://github.com/mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Commencing GSoC&#39;21 with NumFOCUS</title>
+      <link>https://github.com/mjsheikh.github.io/blog/post/commencement/</link>
+      <pubDate>Tue, 18 May 2021 22:34:49 +0530</pubDate>
+      
+      <guid>https://github.com/mjsheikh.github.io/blog/post/commencement/</guid>
+      <description>GSoC&#39;21 : NumFOCUS In response to my contributions for about 4 months to SciML Org, I was absolutely thrilled when informed about my selection in this year&amp;rsquo;s GSoC on 17th May, 2021.</description>
+    </item>
+    
+  </channel>
+</rss>
