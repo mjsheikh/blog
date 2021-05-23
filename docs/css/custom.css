@@ -296,11 +296,11 @@ nav ul li>a:only-child::after {
 
 footer {
   text-align: center;
-  color: #ccc;
+  color: #111;
 }
 
 footer a {
-  color: #fff;
+  color: #444;
   text-decoration: underline;
   font-weight: 500;
 }
