@@ -8,10 +8,10 @@ paginate = 5
 # googleAnalytics = "UA-123-45"
 
 # Enter your disqus Shortname and uncomment below line to enable
-disqusShortname = "mjsheikh"
+# disqusShortname = "mjsheikh"
 
 [params]
-favicon = "images/blog.png"
+favicon = "images/blogs.png"
 herotitle = "Welcome! I'll be using this space to keep you posted :)"
 herolink = "https://mjsheikh.github.io/"
 herolinktext = "My Homepage"
@@ -22,7 +22,7 @@ herolinktext = "My Homepage"
     [[menu.nav]]
         name    = "about"
         pre = "<i class='fas fa-home'></i>"
-        url     = "about"
+        url     = "https://mjsheikh.github.io/#about"
         weight  = -1
     [[menu.nav]]
         name    = "blog"
