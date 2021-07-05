@@ -80,11 +80,11 @@ Keeping this in mind, the task was to make lazy operators and commonly used func
 <li><code>Norm</code> of given vector (extended from the <code>LinearAlgebra.jl</code> library)</li>
 </ul>
 <p>The Operators are essentially structures that store the <code>CenteredDifference</code> operator sequentially upto the Nth-axis for performing Finite-difference operations on the input. These operators differ in the way convolutions are carried by them with Gradient and Curl accepting vector inputs while Divergence sufficing with functions. The convolutions would be carried out through deriving the partial derivatives <code>∂f/∂xₙ</code> along various dimensions by permuting with the stored CD-structures. <code>Norm</code> , <code>Dot</code> &amp;  <code>Cross</code> provided in the LinearAlgebra.jl package worked for 1-D input. Hence, I constructed wrappers extending their support to multi-dimensions through broadcasting.</p>
-<h1 id="blocks-and-workarounds">Blocks and Workarounds</h1>
+<h1 id="_blocks-and-workarounds_"><em>Blocks and Workarounds</em></h1>
 <p>These functionalities have been tested for support with AbstractArray inputs, but an inclusion for <code>BoundaryPaddedArray</code> was required. For that, I first needed to extend the <code>MultiDimensionBC</code> operator for our Tensor. But after digging in, I found that the current implementation had been goofed-up since it only provided support for padding only with constant Boundary Value across the whole grid-space of one axis. For user convenience, rather than asking for BCs at all extremes along an axis, I have implemented an extrapolation scheme using CenteredDiff. and developed the <code>MultiDimBC</code> construct storing the CenteredDiff. along various axis for computing partial derivatives through which we would extrapolate.
 This still needs enhancement since this isn&rsquo;t exactly an affine operator
 The PR for the implementation can be found at : <a href="https://github.com/SciML/DiffEqOperators.jl/pull/414">https://github.com/SciML/DiffEqOperators.jl/pull/414</a></p>
-<h1 id="way-forward">Way forward</h1>
+<h1 id="_way-forward_"><em>Way forward</em></h1>
 <p>The first Goal has almost been achieved, I&rsquo;m currently optimizing the code for memory issues and hope to get this done before the First Evaluations (which are fast approaching!!).
 You can find this work at : <a href="https://github.com/SciML/DiffEqOperators.jl/pull/375">https://github.com/SciML/DiffEqOperators.jl/pull/375</a>
 Pinge me if you wish to know more, until next time!</p>
