@@ -8,8 +8,8 @@ showReadingTime: true
 ## **Cache efficiency**
 
 Hello Everyone! Some good news, the first evaluations happened from 12th-16th of July and I aced them!
-Last time I demonstrated my first sub-goal `(Vector Calculus Operators)` and how my next task was to optimize the code. 
 
+Last time I demonstrated my first sub-goal `(Vector Calculus Operators)` and how my next task was to optimize the code. 
 So, after assessment we found that there were 2 major inefficiencies present -
 1. Unnecessary Allocations
 2. Cache Line Inefficiencies
@@ -40,7 +40,7 @@ Hence, I decided to dispose off that representation and insead add an extra dime
 **Post the structural changes :**
 ```40.521 μs (15 allocations: 8.94 KiB)```
 
-So yes, the take away is to ensure you use contiguous blocks of memory wherever you can :)
+This is a **10x** speedup in performance and around **100** times lesser memory usage! So yes, the take away is to ensure you use contiguous blocks of memory wherever you can :)
 
 # _Cache Line Inefficiencies_
 

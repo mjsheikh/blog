@@ -66,9 +66,9 @@
     <div class="row content">
         <article>
             <h2 id="cache-efficiency"><strong>Cache efficiency</strong></h2>
-<p>Hello Everyone! Some good news, the first evaluations happened from 12th-16th of July and I aced them!
-Last time I demonstrated my first sub-goal <code>(Vector Calculus Operators)</code> and how my next task was to optimize the code.</p>
-<p>So, after assessment we found that there were 2 major inefficiencies present -</p>
+<p>Hello Everyone! Some good news, the first evaluations happened from 12th-16th of July and I aced them!</p>
+<p>Last time I demonstrated my first sub-goal <code>(Vector Calculus Operators)</code> and how my next task was to optimize the code.
+So, after assessment we found that there were 2 major inefficiencies present -</p>
 <ol>
 <li>Unnecessary Allocations</li>
 <li>Cache Line Inefficiencies</li>
@@ -91,7 +91,7 @@ This really slows down our computations.</p>
   evals/sample:     1
 </code></pre><p><strong>Post the structural changes :</strong>
 <code>40.521 μs (15 allocations: 8.94 KiB)</code></p>
-<p>So yes, the take away is to ensure you use contiguous blocks of memory wherever you can :)</p>
+<p>This is a <strong>10x</strong> speedup in performance and around <strong>100</strong> times lesser memory usage! So yes, the take away is to ensure you use contiguous blocks of memory wherever you can :)</p>
 <h1 id="_cache-line-inefficiencies_"><em>Cache Line Inefficiencies</em></h1>
 <p>To minimize cache misses, modern CPUs try to guess the next chunk of memory we will try to access while traversing arrays. Hence, it makes a guess and grabs a block known as <strong>cache line</strong> that it supposes we will access next. The way of guessing this varies across different languages. Since <code>SciML</code> is a <code>julia</code> intensive package, the convention in <code>julia</code> is that the linear array of memory is formed by stacking the columns one after another i.e. it is <strong>Column-Major</strong>. One has to keep this thing in mind while iterating.</p>
 <p align="center">
