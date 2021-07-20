@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+<title>GSoC&#39;21 : Week 5</title>
+<meta name="description"
+    content="">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" href="https://mjsheikh.github.io/blog/css/normalize.css">
+
+<link rel="stylesheet" href="https://mjsheikh.github.io/blog/css/skeleton.css">
+
+<link rel="stylesheet" href="https://mjsheikh.github.io/blog/css/custom.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+
+
+<link rel="shortcut icon" href="/images/blog.png" type="image/png" />
+
+
+
+</head>
+    <body><nav>
+    <label for="drop" class="toggle"><i class="fas fa-bars u-pull-right" aria-hidden="true"></i> <span><i
+                class="fas fa-fire" aria-hidden="true"></i>
+            Sugoi</span></label>
+    <input type="checkbox" id="drop" />
+    <ul class="menu">
+        <li><a href="https://mjsheikh.github.io/blog/"><span><i class="fas fa-fire" aria-hidden="true"></i>
+                    Sugoi</span></a></li>
+        
+        <li class="u-pull-right">
+            <a href="https://mjsheikh.github.io/blog/post" class="Members">
+                <span><i class='fas fa-list'></i> blog</span>
+            </a>
+        </li>
+        
+        <li class="u-pull-right">
+            <a href="https://mjsheikh.github.io/#about" class="Members">
+                <span><i class='fas fa-home'></i> about</span>
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+<div class="section hero">
+    <div class="container">
+        <h1 class="section-heading">GSoC&#39;21 : Week 5</h1>
+        
+        
+        
+        <i class="far fa-calendar"></i> Published On: 19-07-2021,
+        <i class="far fa-clock"></i> Reading Time: 3 minutes
+        </h6>
+    </div>
+</div>
+
+<div class="section main">
+    <div class="row content">
+        <article>
+            <h2 id="cache-efficiency"><strong>Cache efficiency</strong></h2>
+<p>Hello Everyone! Some good news, the first evaluations happened from 12th-16th of July and I aced them!
+Last time I demonstrated my first sub-goal <code>(Vector Calculus Operators)</code> and how my next task was to optimize the code.</p>
+<p>So, after assessment we found that there were 2 major inefficiencies present -</p>
+<ol>
+<li>Unnecessary Allocations</li>
+<li>Cache Line Inefficiencies</li>
+</ol>
+<p>Lets talk about both of these in order and what ways I&rsquo;ve adopted to address them!</p>
+<h1 id="_reducing-the-allocations_"><em>Reducing the Allocations</em></h1>
+<p>Remember how we opted to a represent a <code>N</code>- dim physical Vector <code>A</code> in Tensor form? I was using a <code>1-D array</code> to store its various components at a grid point. The problem with that is as soon as we use an array for storage, this will require allocations! For e.g. , a 3-component Vector would be initialized as <code>zeros(T,3)</code> (<code>T</code> being the type of element) and this will result in allocations. hence if we have a grid space  of size <code>p x q x r</code>, there will be that many extra allocations of similar order. That&rsquo;s a really bad idea to use so much memory in chunks since our CPU cache will use the heap that many times and allocate at places which will not necessarily be contiguous. The end result is that the reference pointer has to make switches whenever it tries to access a different chunk of memory on the heap.
+This really slows down our computations.</p>
+<p>Hence, I decided to dispose off that representation and insead add an extra dimension in our Tensor, whose indices will be holding the respective components our Vector. This way we will skip the array allocations and whatever allocations we will have would be more or less contiguous. I tried this and I was able to bring down the no. of allocations as well as speed up the operations. Here is a summary of performance prior to &amp; after the changes -</p>
+<p><strong>Prior Implementation :</strong></p>
+<pre><code>  memory estimate:  746.22 KiB
+  allocs estimate:  14804
+  --------------
+  minimum time:     468.595 μs (0.00% GC)
+  median time:      544.707 μs (0.00% GC)
+  mean time:        616.459 μs (11.55% GC)
+  maximum time:     8.308 ms (92.88% GC)
+  --------------
+  samples:          8063
+  evals/sample:     1
+</code></pre><p><strong>Post the structural changes :</strong>
+<code>40.521 μs (15 allocations: 8.94 KiB)</code></p>
+<p>So yes, the take away is to ensure you use contiguous blocks of memory wherever you can :)</p>
+<h1 id="_cache-line-inefficiencies_"><em>Cache Line Inefficiencies</em></h1>
+<p>To minimize cache misses, modern CPUs try to guess the next chunk of memory we will try to access while traversing arrays. Hence, it makes a guess and grabs a block known as <strong>cache line</strong> that it supposes we will access next. The way of guessing this varies across different languages. Since <code>SciML</code> is a <code>julia</code> intensive package, the convention in <code>julia</code> is that the linear array of memory is formed by stacking the columns one after another i.e. it is <strong>Column-Major</strong>. One has to keep this thing in mind while iterating.</p>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/39168576/126272152-f8397608-e41e-4332-9ca0-fb4ca7b2ef4b.png" alt="diagram" />
+</p> 
+<p><em><strong>Source : <a href="https://mitmath.github.io/18337/lecture2/optimizing">https://mitmath.github.io/18337/lecture2/optimizing</a></strong></em></p>
+<p>Earlier my implementations were <strong>Row-Major</strong> i.e. I had written the loops of our convolutions in a way that iterated along rows (in a matrix). This will again bring up the same issue discussed in the previous section, of reference pointer requiring many switches during traversal. Therefore, once this thing was pointed out by my mentor, I changed that at most of the places and voila! Some more performance enhancements achieved.</p>
+<p>The next thing in sight would be to start-off with my second subgoal - <strong>Diversifying functionalities for <code>MOLFiniteDifference</code></strong>, the symbolic handling tool of our library.
+Hope you liked this read, some more coming up soon!</p>
+<hr>
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/39168576/119239386-4e523200-bb66-11eb-8a36-46fcf42c92a8.png" alt="drawing" />
+</p> 
+
+            
+        </article>
+    </div>
+</div>
+
+<footer>
+    <span class="copyright">
+         &copy; 2021 
+        <a href="https://github.com/aanupam23/hugo-sugoi" title="hugo-sugoi" alt="hugo-sugoi" target="_blank">Hugo-Sugoi</a>
+    </span>
+</footer></body>
+</html>
