@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Zeeshan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Jul 2021 23:29:33 +0530</lastBuildDate><atom:link href="https://mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Aug 2021 18:40:33 +0530</lastBuildDate><atom:link href="https://mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSoC&#39;21 : JuliaCon &#39;21 &amp; 8 Weeks done! </title>
+      <link>https://mjsheikh.github.io/blog/post/week7-8/</link>
+      <pubDate>Mon, 02 Aug 2021 18:40:33 +0530</pubDate>
+      
+      <guid>https://mjsheikh.github.io/blog/post/week7-8/</guid>
+      <description>JuliaCon &amp;lsquo;21 Ola Amigos! I&amp;rsquo;m super-excited to tell you guys that I attended my first JuliaCon this year!! This is basically a Julia organized conference where people working in the Julia Community come together and give a briefing about the latest advancements, milestones and future prospects the organization looks up to.</description>
+    </item>
+    
     <item>
       <title>GSoC&#39;21 : Week 5</title>
       <link>https://mjsheikh.github.io/blog/post/week5-6/</link>
