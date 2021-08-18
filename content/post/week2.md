@@ -24,10 +24,13 @@ Here are the functionalities that have implemented :
 
 The Operators are essentially structures that store the `CenteredDifference` operator sequentially upto the Nth-axis for performing Finite-difference operations on the input. These operators differ in the way convolutions are carried by them with Gradient and Curl accepting vector inputs while Divergence sufficing with functions. The convolutions would be carried out through deriving the partial derivatives `∂f/∂xₙ` along various dimensions by permuting with the stored CD-structures. `Norm` , `Dot` &  `Cross` provided in the LinearAlgebra.jl package worked for 1-D input. Hence, I constructed wrappers extending their support to multi-dimensions through broadcasting.
 
+- ***Link to the PR : <u>[https://github.com/SciML/DiffEqOperators.jl/pull/375](https://github.com/SciML/DiffEqOperators.jl/pull/375)</u>***
+
 # _Blocks and Workarounds_
 These functionalities have been tested for support with AbstractArray inputs, but an inclusion for `BoundaryPaddedArray` was required. For that, I first needed to extend the `MultiDimensionBC` operator for our Tensor. But after digging in, I found that the current implementation had been goofed-up since it only provided support for padding only with constant Boundary Value across the whole grid-space of one axis. For user convenience, rather than asking for BCs at all extremes along an axis, I have implemented an extrapolation scheme using CenteredDiff. and developed the `MultiDimBC` construct storing the CenteredDiff. along various axis for computing partial derivatives through which we would extrapolate.
 This still needs enhancement since this isn't exactly an affine operator
-The PR for the implementation can be found at : [https://github.com/SciML/DiffEqOperators.jl/pull/414](https://github.com/SciML/DiffEqOperators.jl/pull/414)
+
+- ***Link to the PR : <u>[https://github.com/SciML/DiffEqOperators.jl/pull/414](https://github.com/SciML/DiffEqOperators.jl/pull/414)</u>***
 
 # _Way forward_
 The first Goal has almost been achieved, I'm currently optimizing the code for memory issues and hope to get this done before the First Evaluations (which are fast approaching!!). 

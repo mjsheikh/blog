@@ -99,6 +99,9 @@ This really slows down our computations.</p>
 </p> 
 <p><em><strong>Source : <a href="https://mitmath.github.io/18337/lecture2/optimizing">https://mitmath.github.io/18337/lecture2/optimizing</a></strong></em></p>
 <p>Earlier my implementations were <strong>Row-Major</strong> i.e. I had written the loops of our convolutions in a way that iterated along rows (in a matrix). This will again bring up the same issue discussed in the previous section, of reference pointer requiring many switches during traversal. Therefore, once this thing was pointed out by my mentor, I changed that at most of the places and voila! Some more performance enhancements achieved.</p>
+<ul>
+<li><em><strong>Link to the PR : <u><a href="https://github.com/SciML/DiffEqOperators.jl/pull/427">https://github.com/SciML/DiffEqOperators.jl/pull/427</a></u></strong></em></li>
+</ul>
 <p>The next thing in sight would be to start-off with my second subgoal - <strong>Diversifying functionalities for <code>MOLFiniteDifference</code></strong>, the symbolic handling tool of our library.
 Hope you liked this read, some more coming up soon!</p>
 <hr>

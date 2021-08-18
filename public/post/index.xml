@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Zeeshan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Aug 2021 18:40:33 +0530</lastBuildDate><atom:link href="https://mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 23:30:16 +0530</lastBuildDate><atom:link href="https://mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSoC&#39;21 : Last Mile</title>
+      <link>https://mjsheikh.github.io/blog/post/week9-10/</link>
+      <pubDate>Mon, 16 Aug 2021 23:30:16 +0530</pubDate>
+      
+      <guid>https://mjsheikh.github.io/blog/post/week9-10/</guid>
+      <description>Closing in Coding Period Hello to Everyone! Into the final couple weeks of my journey at GSoC&#39;21, I&amp;rsquo;ve tried accomplishing the remaining couple of proposed goals of mine.</description>
+    </item>
+    
     <item>
       <title>GSoC&#39;21 : JuliaCon &#39;21 &amp; 8 Weeks done! </title>
       <link>https://mjsheikh.github.io/blog/post/week7-8/</link>

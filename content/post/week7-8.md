@@ -12,8 +12,8 @@ showReadingTime: true
 
 # **JuliaCon '21**
 Ola Amigos! I'm super-excited to tell you guys that I attended my first [***JuliaCon***](https://juliacon.org/2021/) this year!! This is basically a Julia organized conference where people working in the Julia Community come together and give a briefing about the latest advancements, milestones and future prospects the organization looks up to. Some very promising works were shared. One of them, I recall, was from my mentor Chris Rackauckas about the **JuliaSIM** project. That's a next generation cloud based simulation platform, which is showing some promising results as it has marked about 700x enhancement for some of its clients compared to the State of the Art tech. The Language has also been the first choice (Vs Python, MATLAB etc.) for majority of the people who use it in one way or the other. Below are the references to some of these exciting talks I attended:
-- [https://youtu.be/lNbU5jNp67s](https://youtu.be/lNbU5jNp67s) **(_JuliaSIM_)**
-- [https://youtu.be/0XSk5zybfic](https://youtu.be/0XSk5zybfic) **(_Julia Developer Survey Results 2021_)**
+- ***<u>[https://youtu.be/lNbU5jNp67s](https://youtu.be/lNbU5jNp67s)</u> (_JuliaSIM_)***
+- ***<u>[https://youtu.be/0XSk5zybfic](https://youtu.be/0XSk5zybfic)</u> (_Julia Developer Survey Results 2021_)***
 
 I wish perhaps we can be a part of this some day :D 
 
@@ -28,7 +28,7 @@ But what does that fancy term mean?? In nut-shell, in **parallel systems**, if w
 
 Mentioned below are some benchmark improvements I got by putting that to use in the internal `CenteredDifference` convolutions of our Operators, for a 101x101x101 3D function/Vector :
 
-- Earlier
+- ***Earlier***
 ```
 Divergence
 @btime u = A*u0
@@ -43,7 +43,7 @@ Curl
   42.645 μs (15 allocations: 8.94 KiB)
 ```
 
-- Now
+- ***Now***
 ```
 Divergence
 @btime u = A*u0
@@ -59,6 +59,10 @@ Curl
 ```
 That's around **4x speed-up** which is massive for large resource-intensive runs!!
 I think we have came a long way, beginning with a runtime of **~140 μs** and finally touching at **~ 7μs**. Perhaps, that would be good enough for the time being :D
+
+- ***Link to the PR : <u>[https://github.com/SciML/DiffEqOperators.jl/pull/428](https://github.com/SciML/DiffEqOperators.jl/pull/428)</u>***
+- ***Link to the PR : <u>[https://github.com/SciML/DiffEqOperators.jl/pull/431](https://github.com/SciML/DiffEqOperators.jl/pull/431)</u>***
+
 Next, I'm looking to dive in and enhance some [***Spare Array / BandedMatrix***](https://juliamatrices.github.io/BandedMatrices.jl/latest/) representations of our Linear Derivative Operators.
 Stay safe, until next time **:)**  
 

@@ -72,8 +72,8 @@
 <h1 id="juliacon-21"><strong>JuliaCon &lsquo;21</strong></h1>
 <p>Ola Amigos! I&rsquo;m super-excited to tell you guys that I attended my first <a href="https://juliacon.org/2021/"><em><strong>JuliaCon</strong></em></a> this year!! This is basically a Julia organized conference where people working in the Julia Community come together and give a briefing about the latest advancements, milestones and future prospects the organization looks up to. Some very promising works were shared. One of them, I recall, was from my mentor Chris Rackauckas about the <strong>JuliaSIM</strong> project. That&rsquo;s a next generation cloud based simulation platform, which is showing some promising results as it has marked about 700x enhancement for some of its clients compared to the State of the Art tech. The Language has also been the first choice (Vs Python, MATLAB etc.) for majority of the people who use it in one way or the other. Below are the references to some of these exciting talks I attended:</p>
 <ul>
-<li><a href="https://youtu.be/lNbU5jNp67s">https://youtu.be/lNbU5jNp67s</a> <strong>(<em>JuliaSIM</em>)</strong></li>
-<li><a href="https://youtu.be/0XSk5zybfic">https://youtu.be/0XSk5zybfic</a> <strong>(<em>Julia Developer Survey Results 2021</em>)</strong></li>
+<li><em><strong><u><a href="https://youtu.be/lNbU5jNp67s">https://youtu.be/lNbU5jNp67s</a></u> (<em>JuliaSIM</em>)</strong></em></li>
+<li><em><strong><u><a href="https://youtu.be/0XSk5zybfic">https://youtu.be/0XSk5zybfic</a></u> (<em>Julia Developer Survey Results 2021</em>)</strong></em></li>
 </ul>
 <p>I wish perhaps we can be a part of this some day :D</p>
 <h2 id="loop-vectorization"><strong>Loop Vectorization</strong></h2>
@@ -83,7 +83,7 @@ Lately, I&rsquo;ve been dedicated in optimizing the <code>VCOPs</code> code. We&
 <p><code>LoopVectorization.jl</code> provides exactly that. This library provides the <code>@turbo</code> macro, which may be used to prefix a <code>for</code> loop or <code>broadcast</code> statement. It then tries to vectorize the loop to improve runtime performance.</p>
 <p>Mentioned below are some benchmark improvements I got by putting that to use in the internal <code>CenteredDifference</code> convolutions of our Operators, for a 101x101x101 3D function/Vector :</p>
 <ul>
-<li>Earlier</li>
+<li><em><strong>Earlier</strong></em></li>
 </ul>
 <pre><code>Divergence
 @btime u = A*u0
@@ -97,7 +97,7 @@ Curl
 @btime u = A*u0
   42.645 μs (15 allocations: 8.94 KiB)
 </code></pre><ul>
-<li>Now</li>
+<li><em><strong>Now</strong></em></li>
 </ul>
 <pre><code>Divergence
 @btime u = A*u0
@@ -111,8 +111,12 @@ Curl
 @btime u = A*u0
   10.876 μs (15 allocations: 8.94 KiB)
 </code></pre><p>That&rsquo;s around <strong>4x speed-up</strong> which is massive for large resource-intensive runs!!
-I think we have came a long way, beginning with a runtime of <strong>~140 μs</strong> and finally touching at <strong>~ 7μs</strong>. Perhaps, that would be good enough for the time being :D
-Next, I&rsquo;m looking to dive in and enhance some <a href="https://juliamatrices.github.io/BandedMatrices.jl/latest/"><em><strong>Spare Array / BandedMatrix</strong></em></a> representations of our Linear Derivative Operators.
+I think we have came a long way, beginning with a runtime of <strong>~140 μs</strong> and finally touching at <strong>~ 7μs</strong>. Perhaps, that would be good enough for the time being :D</p>
+<ul>
+<li><em><strong>Link to the PR : <u><a href="https://github.com/SciML/DiffEqOperators.jl/pull/428">https://github.com/SciML/DiffEqOperators.jl/pull/428</a></u></strong></em></li>
+<li><em><strong>Link to the PR : <u><a href="https://github.com/SciML/DiffEqOperators.jl/pull/431">https://github.com/SciML/DiffEqOperators.jl/pull/431</a></u></strong></em></li>
+</ul>
+<p>Next, I&rsquo;m looking to dive in and enhance some <a href="https://juliamatrices.github.io/BandedMatrices.jl/latest/"><em><strong>Spare Array / BandedMatrix</strong></em></a> representations of our Linear Derivative Operators.
 Stay safe, until next time <strong>:)</strong></p>
 <hr>
 <p align="center">
