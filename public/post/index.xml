@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Zeeshan&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Aug 2021 23:30:16 +0530</lastBuildDate><atom:link href="https://mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 Aug 2021 12:43:16 +0530</lastBuildDate><atom:link href="https://mjsheikh.github.io/blog/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSoC&#39;21 : Final Report</title>
+      <link>https://mjsheikh.github.io/blog/post/final_report/</link>
+      <pubDate>Thu, 19 Aug 2021 12:43:16 +0530</pubDate>
+      
+      <guid>https://mjsheikh.github.io/blog/post/final_report/</guid>
+      <description>Name : Mohd Jeeshan Sheikh Organization : NumFOCUS Mentors : Chris Rackauckas, Kanav gupta, Yingbo Ma Project : Discretizations of Partial Differential Equations</description>
+    </item>
+    
     <item>
       <title>GSoC&#39;21 : Last Mile</title>
       <link>https://mjsheikh.github.io/blog/post/week9-10/</link>
@@ -26,7 +35,7 @@
     </item>
     
     <item>
-      <title>GSoC&#39;21 : Week 5</title>
+      <title>GSoC&#39;21 : Moving Ahead</title>
       <link>https://mjsheikh.github.io/blog/post/week5-6/</link>
       <pubDate>Mon, 19 Jul 2021 23:29:33 +0530</pubDate>
       

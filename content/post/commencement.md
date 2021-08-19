@@ -11,8 +11,9 @@ showReadingTime: true
 
 ## **GSoC'21 : NumFOCUS**
 
-![NumFocus_LRG](https://user-images.githubusercontent.com/39168576/119238813-8d7e8400-bb62-11eb-881a-f5ec35cb4b19.png)
-
+<p align="center">
+    <img src="https://user-images.githubusercontent.com/39168576/119238813-8d7e8400-bb62-11eb-881a-f5ec35cb4b19.png" alt="NumFOCUS_LRG" />
+</p>
 
 In response to my contributions for about 4 months to [***SciML Org***](https://github.com/SciML), I was absolutely thrilled when informed about my selection in this year's **GSoC** on 17th May, 2021. I'll be working for [***NumFOCUS***](https://numfocus.org/) under the mentorship of [***Chris Rackauckas***](https://github.com/ChrisRackauckas), [***Yingbo Ma***](https://github.com/YingboMa) & [***Kanav Gupta***](https://github.com/kanav99).
 
