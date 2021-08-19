@@ -14,7 +14,7 @@ showReadingTime: true
 **Mentors** : Chris Rackauckas, Kanav gupta, Yingbo Ma <br>
 **Project** : ***<u>[Discretizations of Partial Differential Equations](https://drive.google.com/file/d/1-eGbu8bG8GkSOYYZfApMCppYqQvuPteF/view)</u>***
 
-Greetings to everyone! Finally my journey through various walks of GSoC'21, starting from preps to application, acceptance and ultimately gettings things done in sync with my proposal has came to end. Big thanks to my mentors, especially <u>[**Chris Rackauckas**](https://chrisrackauckas.com/)</u> for deciding to commit with me on this project, engaging in insightful discussions and providing his inputs at several pivotal instances. I came in with little idea about the SciML org and will be walking out with a really comprehensive knowledge about <u>[**DiffEqOperators.jl**](https://github.com/SciML/DiffEqOperators.jl)</u>, one of the many awesome and state-of-the-art packages that the organization has developed over the years which prove to be miles ahead in terms of performance in comparison to many other commercially popular tools in the domain of scientific computing.s
+Greetings to everyone! Finally my journey through various walks of GSoC'21, starting from preps to application, acceptance and ultimately gettings things done in sync with my proposal has came to end. Big thanks to my mentors, especially <u>[**Chris Rackauckas**](https://chrisrackauckas.com/)</u> for deciding to commit with me on this project, engaging in insightful discussions and providing his inputs at several pivotal instances.In retrospect, I came in with little idea about the SciML org and will be walking out with a really comprehensive knowledge about <u>[**DiffEqOperators.jl**](https://github.com/SciML/DiffEqOperators.jl)</u>, one of the many awesome and state-of-the-art packages that the organization has developed over the years which prove to be miles ahead in terms of performance in comparison to many other commercially popular tools in the domain of scientific computing.s
 
 #### **Summary of Things Done**
 My work can be summarized to lie under two categories : <br>
@@ -24,11 +24,11 @@ My work can be summarized to lie under two categories : <br>
 I took the task to look for potentially desirable but missing components in DiffEqOperators.jl and introduced Vector Calculus Operators, which carry wide applications in scientific domain. This sub-goal included designing the structures, methods and various operations for the operators and finally working towards their optimization to match the API standards and benchmarks. During this I learnt the concepts of cache-efficiency and vectorization of loops. Having acquired this knowledge, I also benchmarked the convolutions for DerivativeOperators and generated a speed-up of over **2x** for uniform grid CenteredDifference convolutions (though there were observed improvements in others as well!). Moving on, I designed multiple concretizations for AffineBC operators, synced concretizations for updated UpwindDifference and reduced the bandwidths in BandedMatrices for Derivative (and as a result GhostDerivative) Operators. In the end, the symbolic handling by MOLFiniteDifference was extended to support a general N-ordered BC in 1D space.
 
 A more detailed account of these works can be found in the following blog posts :
-- **<u>[GSoC'21 : Last Mile](https://mjsheikh.github.io/blog/post/week9-10/)</u>**
-- **<u>[GSoC'21 : Julia Con'21 and 8 Weeks done!](https://mjsheikh.github.io/blog/post/week7-8/)</u>**
-- **<u>[GSoC'21 : Moving forward](https://mjsheikh.github.io/blog/post/week5-6/)</u>**
-- **<u>[GSoC'21 : Approaching the First Evaluations](https://mjsheikh.github.io/blog/post/week2/)</u>**
-- **<u>[Commencing GSoC'21 with NumFOCUS](https://mjsheikh.github.io/blog/post/commencement/)</u>**
+- <u>[<b>GSoC'21 : Last Mile</b>](https://mjsheikh.github.io/blog/post/week9-10/)</u>
+- <u>[<b>GSoC'21 : Julia Con'21 and 8 Weeks done!</b>](https://mjsheikh.github.io/blog/post/week7-8/)</u>
+- <u>[<b>GSoC'21 : Moving forward</b>](https://mjsheikh.github.io/blog/post/week5-6/)</u>
+- <u>[<b>GSoC'21 : Approaching the First Evaluations</b>](https://mjsheikh.github.io/blog/post/week2/)</u>
+- <u>[<b>Commencing GSoC'21 with NumFOCUS</b>](https://mjsheikh.github.io/blog/post/commencement/)</u>
 
 #### <u>**Compilation of all contributions**</u>
 <table class="u-full-width">
